@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course Registration - Multi Step</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <form id="regForm" action="submit.php" method="POST" novalidate>
+      <h1>🎓 Course Registration</h1>
+
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        <div class="progress-step active" data-title="Personal"></div>
+        <div class="progress-step" data-title="Course"></div>
+        <div class="progress-step" data-title="Review"></div>
+      </div>
+
+      <!-- Step 1 - Personal -->
+      <div class="form-step form-step-active">
+        <label>Full Name</label>
+        <input type="text" name="fullname" id="fullname" required />
+
+        <label>Student ID / Roll No</label>
+        <input type="text" name="studentid" id="studentid" required />
+
+        <label>Email</label>
+        <input type="email" name="email" id="email" required />
+
+        <label>Date of Birth</label>
+        <input type="date" name="dob" id="dob" required />
+
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="Male" required> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+
+        <label>College Name</label>
+        <input type="text" name="college" id="college" placeholder="Your college name" required />
+
+        <label>Guardian Name (optional)</label>
+        <input type="text" name="guardian_name" id="guardian_name" />
+
+        <label>Guardian Phone (optional)</label>
+        <input type="text" name="guardian_phone" id="guardian_phone" />
+
+        <div class="btns-group">
+          <button type="button" class="btn btn-next">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2 - Course -->
+      <div class="form-step">
+        <label>Department</label>
+        <select name="department" id="department" required>
+          <option value="">Select department</option>
+          <option>CSE</option>
+          <option>ECE</option>
+          <option>MECH</option>
+          <option>CIVIL</option>
+          <option>IT</option>
+        </select>
+
+        <label>Course</label>
+        <select name="course" id="course" required>
+          <option value="">Select course</option>
+          <option>Web Development</option>
+          <option>Data Science</option>
+          <option>AI & ML</option>
+          <option>Cyber Security</option>
+          <option>Database Systems</option>
+        </select>
+
+        <label>Semester</label>
+        <input type="number" name="semester" id="semester" min="1" max="12" required />
+
+        <label>Address</label>
+        <textarea name="address" id="address" rows="3" required></textarea>
+
+        <div class="btns-group">
+          <button type="button" class="btn btn-prev">Previous</button>
+          <button type="button" class="btn btn-next">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3 - Review -->
+      <div class="form-step">
+        <h3>Review your details</h3>
+        <div class="review-card">
+          <div><strong>Full Name:</strong> <span id="r_fullname"></span></div>
+          <div><strong>Student ID:</strong> <span id="r_studentid"></span></div>
+          <div><strong>Email:</strong> <span id="r_email"></span></div>
+          <div><strong>DOB:</strong> <span id="r_dob"></span></div>
+          <div><strong>Gender:</strong> <span id="r_gender"></span></div>
+          <div><strong>College:</strong> <span id="r_college"></span></div>
+          <div><strong>Guardian:</strong> <span id="r_guardian"></span></div>
+          <div><strong>Guardian Phone:</strong> <span id="r_guardian_phone"></span></div>
+          <div><strong>Department:</strong> <span id="r_department"></span></div>
+          <div><strong>Course:</strong> <span id="r_course"></span></div>
+          <div><strong>Semester:</strong> <span id="r_semester"></span></div>
+          <div><strong>Address:</strong> <span id="r_address"></span></div>
+        </div>
+
+        <div class="btns-group">
+          <button type="button" class="btn btn-prev">Previous</button>
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
